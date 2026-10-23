@@ -1,0 +1,60 @@
+Summary,Issue Type,Description,Priority
+QE-001 customers: source grain uniqueness,Task,REQ-01; expected: zero violations. Implemented in config/checks.yml.,High
+QE-002 customers: customer_id required,Task,REQ-01; expected: zero violations. Implemented in config/checks.yml.,High
+QE-003 products: source grain uniqueness,Task,REQ-01; expected: zero violations. Implemented in config/checks.yml.,High
+QE-004 products: product_id required,Task,REQ-01; expected: zero violations. Implemented in config/checks.yml.,High
+QE-005 sellers: source grain uniqueness,Task,REQ-01; expected: zero violations. Implemented in config/checks.yml.,High
+QE-006 sellers: seller_id required,Task,REQ-01; expected: zero violations. Implemented in config/checks.yml.,High
+QE-007 orders: source grain uniqueness,Task,REQ-01; expected: zero violations. Implemented in config/checks.yml.,High
+QE-008 orders: order_id required,Task,REQ-01; expected: zero violations. Implemented in config/checks.yml.,High
+QE-009 order_items: source grain uniqueness,Task,REQ-01; expected: zero violations. Implemented in config/checks.yml.,High
+QE-010 order_items: order_id required,Task,REQ-01; expected: zero violations. Implemented in config/checks.yml.,High
+QE-011 order_items: line_id required,Task,REQ-01; expected: zero violations. Implemented in config/checks.yml.,High
+QE-012 payments: source grain uniqueness,Task,REQ-01; expected: zero violations. Implemented in config/checks.yml.,High
+QE-013 payments: order_id required,Task,REQ-01; expected: zero violations. Implemented in config/checks.yml.,High
+QE-014 payments: payment_sequence required,Task,REQ-01; expected: zero violations. Implemented in config/checks.yml.,High
+QE-015 reviews: source grain uniqueness,Task,REQ-01; expected: zero violations. Implemented in config/checks.yml.,High
+QE-016 reviews: review_id required,Task,REQ-01; expected: zero violations. Implemented in config/checks.yml.,High
+QE-017 orders: customer_id reference,Task,REQ-02; expected: zero violations. Implemented in config/checks.yml.,High
+QE-018 order_items: order_id reference,Task,REQ-02; expected: zero violations. Implemented in config/checks.yml.,High
+QE-019 order_items: product_id reference,Task,REQ-02; expected: zero violations. Implemented in config/checks.yml.,High
+QE-020 order_items: seller_id reference,Task,REQ-02; expected: zero violations. Implemented in config/checks.yml.,High
+QE-021 payments: order_id reference,Task,REQ-02; expected: zero violations. Implemented in config/checks.yml.,High
+QE-022 reviews: order_id reference,Task,REQ-02; expected: zero violations. Implemented in config/checks.yml.,High
+QE-023 dim_customer: grain,Task,REQ-03; expected: zero violations. Implemented in config/checks.yml.,High
+QE-024 dim_customer: key required,Task,REQ-03; expected: zero violations. Implemented in config/checks.yml.,High
+QE-025 dim_product: grain,Task,REQ-03; expected: zero violations. Implemented in config/checks.yml.,High
+QE-026 dim_product: key required,Task,REQ-03; expected: zero violations. Implemented in config/checks.yml.,High
+QE-027 dim_seller: grain,Task,REQ-03; expected: zero violations. Implemented in config/checks.yml.,High
+QE-028 dim_seller: key required,Task,REQ-03; expected: zero violations. Implemented in config/checks.yml.,High
+QE-029 dim_date: grain,Task,REQ-03; expected: zero violations. Implemented in config/checks.yml.,High
+QE-030 dim_date: key required,Task,REQ-03; expected: zero violations. Implemented in config/checks.yml.,High
+QE-031 fct_order_items: grain,Task,REQ-03; expected: zero violations. Implemented in config/checks.yml.,High
+QE-032 fct_order_items: key required,Task,REQ-03; expected: zero violations. Implemented in config/checks.yml.,High
+QE-033 fct_orders: grain,Task,REQ-03; expected: zero violations. Implemented in config/checks.yml.,High
+QE-034 fct_orders: key required,Task,REQ-03; expected: zero violations. Implemented in config/checks.yml.,High
+QE-035 fct_payments: grain,Task,REQ-03; expected: zero violations. Implemented in config/checks.yml.,High
+QE-036 fct_payments: key required,Task,REQ-03; expected: zero violations. Implemented in config/checks.yml.,High
+QE-037 mart_daily_sales: grain,Task,REQ-03; expected: zero violations. Implemented in config/checks.yml.,High
+QE-038 mart_daily_sales: key required,Task,REQ-03; expected: zero violations. Implemented in config/checks.yml.,High
+QE-039 Fact source count,Task,REQ-04; expected: zero violations. Implemented in config/checks.yml.,High
+QE-040 Order source count,Task,REQ-04; expected: zero violations. Implemented in config/checks.yml.,High
+QE-041 Independent line amounts,Task,REQ-04; expected: zero violations. Implemented in config/checks.yml.,High
+QE-042 Daily net sales reconciliation,Task,REQ-04; expected: zero violations. Implemented in config/checks.yml.,High
+QE-043 Customer historical key required,Task,REQ-05; expected: zero violations. Implemented in config/checks.yml.,High
+QE-044 Customer one current version,Task,REQ-05; expected: zero violations. Implemented in config/checks.yml.,High
+QE-045 Customer valid intervals,Task,REQ-05; expected: zero violations. Implemented in config/checks.yml.,High
+QE-046 Customer no overlapping intervals,Task,REQ-05; expected: zero violations. Implemented in config/checks.yml.,High
+QE-047 Temporal customer attribution,Task,REQ-05; expected: zero violations. Implemented in config/checks.yml.,High
+QE-048 Positive quantity,Task,REQ-06; expected: zero violations. Implemented in config/checks.yml.,High
+QE-049 Nonnegative price,Task,REQ-06; expected: zero violations. Implemented in config/checks.yml.,High
+QE-050 Valid discount,Task,REQ-06; expected: zero violations. Implemented in config/checks.yml.,High
+QE-051 Nonnegative freight,Task,REQ-06; expected: zero violations. Implemented in config/checks.yml.,High
+QE-052 Valid status,Task,REQ-06; expected: zero violations. Implemented in config/checks.yml.,High
+QE-053 Delivery chronology,Task,REQ-06; expected: zero violations. Implemented in config/checks.yml.,High
+QE-054 Review score range,Task,REQ-06; expected: zero violations. Implemented in config/checks.yml.,High
+QE-055 Payment amount positive,Task,REQ-06; expected: zero violations. Implemented in config/checks.yml.,High
+QE-056 Batch ID positive,Task,REQ-06; expected: zero violations. Implemented in config/checks.yml.,High
+QE-057 Purchase date required,Task,REQ-06; expected: zero violations. Implemented in config/checks.yml.,High
+QE-058 Update time required,Task,REQ-06; expected: zero violations. Implemented in config/checks.yml.,High
+QE-059 Payment order totals,Task,REQ-06; expected: zero violations. Implemented in config/checks.yml.,High

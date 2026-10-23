@@ -1,0 +1,99 @@
+version: 2
+models:
+- name: stg_orders
+  columns:
+  - name: order_id
+    data_tests:
+    - not_null
+    - unique
+  - name: status
+    data_tests:
+    - accepted_values:
+        arguments:
+          values:
+          - delivered
+          - cancelled
+          - shipped
+          - processing
+- name: stg_customers
+  columns:
+  - name: customer_id
+    data_tests:
+    - not_null
+    - unique
+- name: dim_customer
+  columns:
+  - name: customer_key
+    data_tests:
+    - not_null
+    - unique
+- name: dim_product
+  columns:
+  - name: product_id
+    data_tests:
+    - not_null
+    - unique
+- name: dim_seller
+  columns:
+  - name: seller_id
+    data_tests:
+    - not_null
+    - unique
+- name: dim_date
+  columns:
+  - name: date_key
+    data_tests:
+    - not_null
+    - unique
+- name: fct_order_items
+  columns:
+  - name: order_item_key
+    data_tests:
+    - not_null
+    - unique
+  - name: customer_key
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('dim_customer')
+          field: customer_key
+  - name: product_id
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('dim_product')
+          field: product_id
+  - name: seller_id
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('dim_seller')
+          field: seller_id
+  - name: date_key
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('dim_date')
+          field: date_key
+- name: fct_orders
+  columns:
+  - name: order_id
+    data_tests:
+    - not_null
+    - unique
+- name: fct_payments
+  columns:
+  - name: order_id
+    data_tests:
+    - not_null
+    - unique
+- name: mart_daily_sales
+  columns:
+  - name: date_key
+    data_tests:
+    - not_null
+    - unique

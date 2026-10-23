@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-22",
+  "data_kind": "deterministic synthetic retail",
+  "source_records": 65434333,
+  "tables": {
+    "customers": 2000000,
+    "products": 100000,
+    "sellers": 1000,
+    "orders": 10000000,
+    "order_items": 30000000,
+    "payments": 20000000,
+    "reviews": 3333333
+  },
+  "python_tests_passed": 97,
+  "dbt_tests_passed": 35,
+  "sql_checks_passed": 59,
+  "deliberate_defect_types": 12,
+  "postgres_source_rows": 12101000,
+  "cloud_execution": "Snowflake smoke: 46 dbt nodes, 59 SQL quality checks, and 7 exact table reconciliations passed on 65,443 rows; full-scale cloud run not performed",
+  "sqlserver_execution": "NOT RUN",
+  "remote_ci_execution": "NOT RUN",
+  "aws_s3_sample_upload": "7 Parquet files plus delivery manifest manually uploaded to private S3 bucket; direct S3-to-Snowflake IAM role blocked by AWS Academy iam:CreateRole denial"
+}

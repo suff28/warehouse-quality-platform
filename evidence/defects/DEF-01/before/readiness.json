@@ -1,0 +1,88 @@
+{
+  "basis": "Declared source contracts only; optional nulls are profiled separately",
+  "sources": {
+    "customers": {
+      "status": "READY",
+      "checks": [
+        "QE-001",
+        "QE-002",
+        "QE-017"
+      ],
+      "failed_checks": []
+    },
+    "products": {
+      "status": "READY",
+      "checks": [
+        "QE-003",
+        "QE-004",
+        "QE-019"
+      ],
+      "failed_checks": []
+    },
+    "sellers": {
+      "status": "READY",
+      "checks": [
+        "QE-005",
+        "QE-006",
+        "QE-020"
+      ],
+      "failed_checks": []
+    },
+    "orders": {
+      "status": "NOT_READY",
+      "checks": [
+        "QE-007",
+        "QE-008",
+        "QE-017",
+        "QE-018",
+        "QE-021",
+        "QE-022",
+        "QE-052",
+        "QE-053",
+        "QE-056",
+        "QE-057",
+        "QE-058"
+      ],
+      "failed_checks": [
+        "QE-007"
+      ]
+    },
+    "order_items": {
+      "status": "READY",
+      "checks": [
+        "QE-009",
+        "QE-010",
+        "QE-011",
+        "QE-018",
+        "QE-019",
+        "QE-020",
+        "QE-048",
+        "QE-049",
+        "QE-050",
+        "QE-051"
+      ],
+      "failed_checks": []
+    },
+    "payments": {
+      "status": "READY",
+      "checks": [
+        "QE-012",
+        "QE-013",
+        "QE-014",
+        "QE-021",
+        "QE-055"
+      ],
+      "failed_checks": []
+    },
+    "reviews": {
+      "status": "READY",
+      "checks": [
+        "QE-015",
+        "QE-016",
+        "QE-022",
+        "QE-054"
+      ],
+      "failed_checks": []
+    }
+  }
+}

@@ -1,0 +1,597 @@
+[
+  {
+    "id": "QE-001",
+    "requirement": "REQ-01",
+    "name": "customers: source grain uniqueness",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.001
+  },
+  {
+    "id": "QE-002",
+    "requirement": "REQ-01",
+    "name": "customers: customer_id required",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.0
+  },
+  {
+    "id": "QE-003",
+    "requirement": "REQ-01",
+    "name": "products: source grain uniqueness",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.001
+  },
+  {
+    "id": "QE-004",
+    "requirement": "REQ-01",
+    "name": "products: product_id required",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.0
+  },
+  {
+    "id": "QE-005",
+    "requirement": "REQ-01",
+    "name": "sellers: source grain uniqueness",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.0
+  },
+  {
+    "id": "QE-006",
+    "requirement": "REQ-01",
+    "name": "sellers: seller_id required",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.0
+  },
+  {
+    "id": "QE-007",
+    "requirement": "REQ-01",
+    "name": "orders: source grain uniqueness",
+    "severity": "critical",
+    "status": "FAIL",
+    "failed_rows": 1,
+    "sample": [
+      [
+        1,
+        2
+      ]
+    ],
+    "seconds": 0.001
+  },
+  {
+    "id": "QE-008",
+    "requirement": "REQ-01",
+    "name": "orders: order_id required",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.0
+  },
+  {
+    "id": "QE-009",
+    "requirement": "REQ-01",
+    "name": "order_items: source grain uniqueness",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.001
+  },
+  {
+    "id": "QE-010",
+    "requirement": "REQ-01",
+    "name": "order_items: order_id required",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.0
+  },
+  {
+    "id": "QE-011",
+    "requirement": "REQ-01",
+    "name": "order_items: line_id required",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.0
+  },
+  {
+    "id": "QE-012",
+    "requirement": "REQ-01",
+    "name": "payments: source grain uniqueness",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.001
+  },
+  {
+    "id": "QE-013",
+    "requirement": "REQ-01",
+    "name": "payments: order_id required",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.0
+  },
+  {
+    "id": "QE-014",
+    "requirement": "REQ-01",
+    "name": "payments: payment_sequence required",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.0
+  },
+  {
+    "id": "QE-015",
+    "requirement": "REQ-01",
+    "name": "reviews: source grain uniqueness",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.001
+  },
+  {
+    "id": "QE-016",
+    "requirement": "REQ-01",
+    "name": "reviews: review_id required",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.0
+  },
+  {
+    "id": "QE-017",
+    "requirement": "REQ-02",
+    "name": "orders: customer_id reference",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.0
+  },
+  {
+    "id": "QE-018",
+    "requirement": "REQ-02",
+    "name": "order_items: order_id reference",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.001
+  },
+  {
+    "id": "QE-019",
+    "requirement": "REQ-02",
+    "name": "order_items: product_id reference",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.001
+  },
+  {
+    "id": "QE-020",
+    "requirement": "REQ-02",
+    "name": "order_items: seller_id reference",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.001
+  },
+  {
+    "id": "QE-021",
+    "requirement": "REQ-02",
+    "name": "payments: order_id reference",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.001
+  },
+  {
+    "id": "QE-022",
+    "requirement": "REQ-02",
+    "name": "reviews: order_id reference",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.001
+  },
+  {
+    "id": "QE-023",
+    "requirement": "REQ-03",
+    "name": "dim_customer: grain",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.0
+  },
+  {
+    "id": "QE-024",
+    "requirement": "REQ-03",
+    "name": "dim_customer: key required",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.0
+  },
+  {
+    "id": "QE-025",
+    "requirement": "REQ-03",
+    "name": "dim_product: grain",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.0
+  },
+  {
+    "id": "QE-026",
+    "requirement": "REQ-03",
+    "name": "dim_product: key required",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.0
+  },
+  {
+    "id": "QE-027",
+    "requirement": "REQ-03",
+    "name": "dim_seller: grain",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.0
+  },
+  {
+    "id": "QE-028",
+    "requirement": "REQ-03",
+    "name": "dim_seller: key required",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.0
+  },
+  {
+    "id": "QE-029",
+    "requirement": "REQ-03",
+    "name": "dim_date: grain",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.0
+  },
+  {
+    "id": "QE-030",
+    "requirement": "REQ-03",
+    "name": "dim_date: key required",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.0
+  },
+  {
+    "id": "QE-031",
+    "requirement": "REQ-03",
+    "name": "fct_order_items: grain",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.001
+  },
+  {
+    "id": "QE-032",
+    "requirement": "REQ-03",
+    "name": "fct_order_items: key required",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.0
+  },
+  {
+    "id": "QE-033",
+    "requirement": "REQ-03",
+    "name": "fct_orders: grain",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.0
+  },
+  {
+    "id": "QE-034",
+    "requirement": "REQ-03",
+    "name": "fct_orders: key required",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.0
+  },
+  {
+    "id": "QE-035",
+    "requirement": "REQ-03",
+    "name": "fct_payments: grain",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.0
+  },
+  {
+    "id": "QE-036",
+    "requirement": "REQ-03",
+    "name": "fct_payments: key required",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.0
+  },
+  {
+    "id": "QE-037",
+    "requirement": "REQ-03",
+    "name": "mart_daily_sales: grain",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.0
+  },
+  {
+    "id": "QE-038",
+    "requirement": "REQ-03",
+    "name": "mart_daily_sales: key required",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.0
+  },
+  {
+    "id": "QE-039",
+    "requirement": "REQ-04",
+    "name": "Fact source count",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.001
+  },
+  {
+    "id": "QE-040",
+    "requirement": "REQ-04",
+    "name": "Order source count",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.001
+  },
+  {
+    "id": "QE-041",
+    "requirement": "REQ-04",
+    "name": "Independent line amounts",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.002
+  },
+  {
+    "id": "QE-042",
+    "requirement": "REQ-04",
+    "name": "Daily net sales reconciliation",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.002
+  },
+  {
+    "id": "QE-043",
+    "requirement": "REQ-05",
+    "name": "Customer historical key required",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.0
+  },
+  {
+    "id": "QE-044",
+    "requirement": "REQ-05",
+    "name": "Customer one current version",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.0
+  },
+  {
+    "id": "QE-045",
+    "requirement": "REQ-05",
+    "name": "Customer valid intervals",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.0
+  },
+  {
+    "id": "QE-046",
+    "requirement": "REQ-05",
+    "name": "Customer no overlapping intervals",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.001
+  },
+  {
+    "id": "QE-047",
+    "requirement": "REQ-05",
+    "name": "Temporal customer attribution",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.001
+  },
+  {
+    "id": "QE-048",
+    "requirement": "REQ-06",
+    "name": "Positive quantity",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.0
+  },
+  {
+    "id": "QE-049",
+    "requirement": "REQ-06",
+    "name": "Nonnegative price",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.0
+  },
+  {
+    "id": "QE-050",
+    "requirement": "REQ-06",
+    "name": "Valid discount",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.0
+  },
+  {
+    "id": "QE-051",
+    "requirement": "REQ-06",
+    "name": "Nonnegative freight",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.0
+  },
+  {
+    "id": "QE-052",
+    "requirement": "REQ-06",
+    "name": "Valid status",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.0
+  },
+  {
+    "id": "QE-053",
+    "requirement": "REQ-06",
+    "name": "Delivery chronology",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.0
+  },
+  {
+    "id": "QE-054",
+    "requirement": "REQ-06",
+    "name": "Review score range",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.0
+  },
+  {
+    "id": "QE-055",
+    "requirement": "REQ-06",
+    "name": "Payment amount positive",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.0
+  },
+  {
+    "id": "QE-056",
+    "requirement": "REQ-06",
+    "name": "Batch ID positive",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.0
+  },
+  {
+    "id": "QE-057",
+    "requirement": "REQ-06",
+    "name": "Purchase date required",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.0
+  },
+  {
+    "id": "QE-058",
+    "requirement": "REQ-06",
+    "name": "Update time required",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.0
+  },
+  {
+    "id": "QE-059",
+    "requirement": "REQ-06",
+    "name": "Payment order totals",
+    "severity": "critical",
+    "status": "PASS",
+    "failed_rows": 0,
+    "sample": [],
+    "seconds": 0.001
+  }
+]

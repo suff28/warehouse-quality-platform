@@ -1,0 +1,21 @@
+retail_quality:
+  target: "{{ env_var('DBT_TARGET', 'local') }}"
+  outputs:
+    local:
+      type: duckdb
+      path: "{{ env_var('WAREHOUSE_DB', 'data/warehouse.duckdb') }}"
+      schema: analytics
+      threads: 4
+      settings:
+        memory_limit: 3GB
+    snowflake:
+      type: snowflake
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT', '') }}"
+      user: "{{ env_var('SNOWFLAKE_USER', '') }}"
+      password: "{{ env_var('SNOWFLAKE_PASSWORD', '') }}"
+      authenticator: "{{ env_var('SNOWFLAKE_AUTHENTICATOR', 'snowflake') }}"
+      role: "{{ env_var('SNOWFLAKE_ROLE', 'RETAIL_QE') }}"
+      database: "{{ env_var('SNOWFLAKE_DATABASE', 'RETAIL_QE') }}"
+      warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE', 'RETAIL_QE_WH') }}"
+      schema: ANALYTICS
+      threads: 4

@@ -1,0 +1,335 @@
+checks:
+- id: QE-001
+  requirement: REQ-01
+  name: 'customers: source grain uniqueness'
+  severity: critical
+  sql: select customer_id, count(*) n from raw.customers group by customer_id having
+    count(*) > 1
+- id: QE-002
+  requirement: REQ-01
+  name: 'customers: customer_id required'
+  severity: critical
+  sql: select * from raw.customers where customer_id is null
+- id: QE-003
+  requirement: REQ-01
+  name: 'products: source grain uniqueness'
+  severity: critical
+  sql: select product_id, count(*) n from raw.products group by product_id having
+    count(*) > 1
+- id: QE-004
+  requirement: REQ-01
+  name: 'products: product_id required'
+  severity: critical
+  sql: select * from raw.products where product_id is null
+- id: QE-005
+  requirement: REQ-01
+  name: 'sellers: source grain uniqueness'
+  severity: critical
+  sql: select seller_id, count(*) n from raw.sellers group by seller_id having count(*)
+    > 1
+- id: QE-006
+  requirement: REQ-01
+  name: 'sellers: seller_id required'
+  severity: critical
+  sql: select * from raw.sellers where seller_id is null
+- id: QE-007
+  requirement: REQ-01
+  name: 'orders: source grain uniqueness'
+  severity: critical
+  sql: select order_id, count(*) n from raw.orders group by order_id having count(*)
+    > 1
+- id: QE-008
+  requirement: REQ-01
+  name: 'orders: order_id required'
+  severity: critical
+  sql: select * from raw.orders where order_id is null
+- id: QE-009
+  requirement: REQ-01
+  name: 'order_items: source grain uniqueness'
+  severity: critical
+  sql: select order_id,line_id, count(*) n from raw.order_items group by order_id,line_id
+    having count(*) > 1
+- id: QE-010
+  requirement: REQ-01
+  name: 'order_items: order_id required'
+  severity: critical
+  sql: select * from raw.order_items where order_id is null
+- id: QE-011
+  requirement: REQ-01
+  name: 'order_items: line_id required'
+  severity: critical
+  sql: select * from raw.order_items where line_id is null
+- id: QE-012
+  requirement: REQ-01
+  name: 'payments: source grain uniqueness'
+  severity: critical
+  sql: select order_id,payment_sequence, count(*) n from raw.payments group by order_id,payment_sequence
+    having count(*) > 1
+- id: QE-013
+  requirement: REQ-01
+  name: 'payments: order_id required'
+  severity: critical
+  sql: select * from raw.payments where order_id is null
+- id: QE-014
+  requirement: REQ-01
+  name: 'payments: payment_sequence required'
+  severity: critical
+  sql: select * from raw.payments where payment_sequence is null
+- id: QE-015
+  requirement: REQ-01
+  name: 'reviews: source grain uniqueness'
+  severity: critical
+  sql: select review_id, count(*) n from raw.reviews group by review_id having count(*)
+    > 1
+- id: QE-016
+  requirement: REQ-01
+  name: 'reviews: review_id required'
+  severity: critical
+  sql: select * from raw.reviews where review_id is null
+- id: QE-017
+  requirement: REQ-02
+  name: 'orders: customer_id reference'
+  severity: critical
+  sql: select c.* from raw.orders c left join raw.customers p on c.customer_id=p.customer_id
+    where p.customer_id is null
+- id: QE-018
+  requirement: REQ-02
+  name: 'order_items: order_id reference'
+  severity: critical
+  sql: select c.* from raw.order_items c left join raw.orders p on c.order_id=p.order_id
+    where p.order_id is null
+- id: QE-019
+  requirement: REQ-02
+  name: 'order_items: product_id reference'
+  severity: critical
+  sql: select c.* from raw.order_items c left join raw.products p on c.product_id=p.product_id
+    where p.product_id is null
+- id: QE-020
+  requirement: REQ-02
+  name: 'order_items: seller_id reference'
+  severity: critical
+  sql: select c.* from raw.order_items c left join raw.sellers p on c.seller_id=p.seller_id
+    where p.seller_id is null
+- id: QE-021
+  requirement: REQ-02
+  name: 'payments: order_id reference'
+  severity: critical
+  sql: select c.* from raw.payments c left join raw.orders p on c.order_id=p.order_id
+    where p.order_id is null
+- id: QE-022
+  requirement: REQ-02
+  name: 'reviews: order_id reference'
+  severity: critical
+  sql: select c.* from raw.reviews c left join raw.orders p on c.order_id=p.order_id
+    where p.order_id is null
+- id: QE-023
+  requirement: REQ-03
+  name: 'dim_customer: grain'
+  severity: critical
+  sql: select customer_key,count(*) n from analytics.dim_customer group by customer_key
+    having count(*)>1
+- id: QE-024
+  requirement: REQ-03
+  name: 'dim_customer: key required'
+  severity: critical
+  sql: select * from analytics.dim_customer where customer_key is null
+- id: QE-025
+  requirement: REQ-03
+  name: 'dim_product: grain'
+  severity: critical
+  sql: select product_id,count(*) n from analytics.dim_product group by product_id
+    having count(*)>1
+- id: QE-026
+  requirement: REQ-03
+  name: 'dim_product: key required'
+  severity: critical
+  sql: select * from analytics.dim_product where product_id is null
+- id: QE-027
+  requirement: REQ-03
+  name: 'dim_seller: grain'
+  severity: critical
+  sql: select seller_id,count(*) n from analytics.dim_seller group by seller_id having
+    count(*)>1
+- id: QE-028
+  requirement: REQ-03
+  name: 'dim_seller: key required'
+  severity: critical
+  sql: select * from analytics.dim_seller where seller_id is null
+- id: QE-029
+  requirement: REQ-03
+  name: 'dim_date: grain'
+  severity: critical
+  sql: select date_key,count(*) n from analytics.dim_date group by date_key having
+    count(*)>1
+- id: QE-030
+  requirement: REQ-03
+  name: 'dim_date: key required'
+  severity: critical
+  sql: select * from analytics.dim_date where date_key is null
+- id: QE-031
+  requirement: REQ-03
+  name: 'fct_order_items: grain'
+  severity: critical
+  sql: select order_item_key,count(*) n from analytics.fct_order_items group by order_item_key
+    having count(*)>1
+- id: QE-032
+  requirement: REQ-03
+  name: 'fct_order_items: key required'
+  severity: critical
+  sql: select * from analytics.fct_order_items where order_item_key is null
+- id: QE-033
+  requirement: REQ-03
+  name: 'fct_orders: grain'
+  severity: critical
+  sql: select order_id,count(*) n from analytics.fct_orders group by order_id having
+    count(*)>1
+- id: QE-034
+  requirement: REQ-03
+  name: 'fct_orders: key required'
+  severity: critical
+  sql: select * from analytics.fct_orders where order_id is null
+- id: QE-035
+  requirement: REQ-03
+  name: 'fct_payments: grain'
+  severity: critical
+  sql: select order_id,count(*) n from analytics.fct_payments group by order_id having
+    count(*)>1
+- id: QE-036
+  requirement: REQ-03
+  name: 'fct_payments: key required'
+  severity: critical
+  sql: select * from analytics.fct_payments where order_id is null
+- id: QE-037
+  requirement: REQ-03
+  name: 'mart_daily_sales: grain'
+  severity: critical
+  sql: select date_key,count(*) n from analytics.mart_daily_sales group by date_key
+    having count(*)>1
+- id: QE-038
+  requirement: REQ-03
+  name: 'mart_daily_sales: key required'
+  severity: critical
+  sql: select * from analytics.mart_daily_sales where date_key is null
+- id: QE-039
+  requirement: REQ-04
+  name: Fact source count
+  severity: critical
+  sql: select (select count(*) from raw.order_items) expected, (select count(*) from
+    analytics.fct_order_items) actual where expected != actual
+- id: QE-040
+  requirement: REQ-04
+  name: Order source count
+  severity: critical
+  sql: select (select count(distinct order_id) from raw.orders) expected, (select
+    count(*) from analytics.fct_orders) actual where expected != actual
+- id: QE-041
+  requirement: REQ-04
+  name: Independent line amounts
+  severity: critical
+  sql: select r.order_id,r.line_id from raw.order_items r full outer join analytics.fct_order_items
+    f on r.order_id=f.order_id and r.line_id=f.line_id where r.order_id is null or
+    f.order_id is null or f.net_amount != cast(r.quantity*r.unit_price-r.discount_amount
+    as decimal(18,2))
+- id: QE-042
+  requirement: REQ-04
+  name: Daily net sales reconciliation
+  severity: critical
+  sql: with e as (select cast(o.purchased_at as date) date_key,sum(i.quantity*i.unit_price-i.discount_amount)
+    amount from raw.order_items i join analytics.stg_orders o on i.order_id=o.order_id
+    where o.status!='cancelled' group by 1) select coalesce(e.date_key,a.date_key)
+    date_key,e.amount,a.net_sales from e full outer join analytics.mart_daily_sales
+    a on e.date_key=a.date_key where e.date_key is null or a.date_key is null or e.amount!=a.net_sales
+- id: QE-043
+  requirement: REQ-05
+  name: Customer historical key required
+  severity: critical
+  sql: select order_item_key from analytics.fct_order_items where customer_key is
+    null
+- id: QE-044
+  requirement: REQ-05
+  name: Customer one current version
+  severity: critical
+  sql: select customer_id from analytics.dim_customer group by customer_id having
+    sum(case when valid_to is null then 1 else 0 end)!=1
+- id: QE-045
+  requirement: REQ-05
+  name: Customer valid intervals
+  severity: critical
+  sql: select customer_key from analytics.dim_customer where valid_to<=valid_from
+- id: QE-046
+  requirement: REQ-05
+  name: Customer no overlapping intervals
+  severity: critical
+  sql: select customer_id from (select *,lead(valid_from) over(partition by customer_id
+    order by valid_from) nxt from analytics.dim_customer) t where nxt is not null
+    and (valid_to is null or valid_to>nxt)
+- id: QE-047
+  requirement: REQ-05
+  name: Temporal customer attribution
+  severity: critical
+  sql: select f.order_item_key from analytics.fct_order_items f join analytics.stg_orders
+    o on f.order_id=o.order_id join analytics.dim_customer c on f.customer_key=c.customer_key
+    where o.purchased_at<c.valid_from or (c.valid_to is not null and o.purchased_at>=c.valid_to)
+- id: QE-048
+  requirement: REQ-06
+  name: Positive quantity
+  severity: critical
+  sql: select * from raw.order_items where quantity<=0
+- id: QE-049
+  requirement: REQ-06
+  name: Nonnegative price
+  severity: critical
+  sql: select * from raw.order_items where unit_price<0
+- id: QE-050
+  requirement: REQ-06
+  name: Valid discount
+  severity: critical
+  sql: select * from raw.order_items where discount_amount<0 or discount_amount>quantity*unit_price
+- id: QE-051
+  requirement: REQ-06
+  name: Nonnegative freight
+  severity: critical
+  sql: select * from raw.order_items where freight_amount<0
+- id: QE-052
+  requirement: REQ-06
+  name: Valid status
+  severity: critical
+  sql: select * from raw.orders where status not in ('delivered','cancelled','shipped','processing')
+    or status is null
+- id: QE-053
+  requirement: REQ-06
+  name: Delivery chronology
+  severity: critical
+  sql: select * from raw.orders where delivered_at<purchased_at
+- id: QE-054
+  requirement: REQ-06
+  name: Review score range
+  severity: critical
+  sql: select * from raw.reviews where score not between 1 and 5
+- id: QE-055
+  requirement: REQ-06
+  name: Payment amount positive
+  severity: critical
+  sql: select * from raw.payments where payment_amount<=0
+- id: QE-056
+  requirement: REQ-06
+  name: Batch ID positive
+  severity: critical
+  sql: select * from raw.orders where batch_id<1 or batch_id is null
+- id: QE-057
+  requirement: REQ-06
+  name: Purchase date required
+  severity: critical
+  sql: select * from raw.orders where purchased_at is null
+- id: QE-058
+  requirement: REQ-06
+  name: Update time required
+  severity: critical
+  sql: select * from raw.orders where updated_at is null
+- id: QE-059
+  requirement: REQ-06
+  name: Payment order totals
+  severity: critical
+  sql: select p.order_id from analytics.fct_payments p join (select order_id,sum(net_amount+freight_amount)
+    amount from analytics.fct_order_items group by order_id) f on p.order_id=f.order_id
+    where abs(p.paid_amount-f.amount)>0.01

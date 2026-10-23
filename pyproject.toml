@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "warehouse-quality-platform"
+version = "1.0.0"
+requires-python = ">=3.11"
+dependencies = ["duckdb>=1.3,<3", "pyarrow>=19", "PyYAML>=6", "boto3>=1.35", "snowflake-connector-python>=3.12", "pyodbc>=5", "psycopg[binary]>=3.2"]
+[project.optional-dependencies]
+dev = ["ruff==0.17.2", "pytest>=8", "pytest-html>=4", "dbt-core==1.12.6", "dbt-duckdb>=1.9,<2", "dbt-snowflake>=1.9,<2"]
+[project.scripts]
+warehouse-qe = "warehouse_qe.cli:main"
+[tool.setuptools.packages.find]
+where = ["src"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]

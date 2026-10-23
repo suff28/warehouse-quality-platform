@@ -1,0 +1,355 @@
+{
+  "readiness": "Requires contract checks; profiling alone does not certify readiness",
+  "columns": [
+    {
+      "table": "raw.customers",
+      "column": "customer_id",
+      "rows": 2000000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "distinct": 2000000,
+      "minimum": 1,
+      "maximum": 2000000
+    },
+    {
+      "table": "raw.customers",
+      "column": "customer_name",
+      "rows": 2000000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "distinct": 2000000,
+      "minimum": "Customer-1",
+      "maximum": "Customer-999999"
+    },
+    {
+      "table": "raw.customers",
+      "column": "city",
+      "rows": 2000000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "distinct": 200,
+      "minimum": "City-0",
+      "maximum": "City-99"
+    },
+    {
+      "table": "raw.customers",
+      "column": "state",
+      "rows": 2000000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "distinct": 3,
+      "minimum": "MG",
+      "maximum": "SP"
+    },
+    {
+      "table": "raw.customers",
+      "column": "updated_at",
+      "rows": 2000000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "distinct": 1,
+      "minimum": "2023-01-01 00:00:00",
+      "maximum": "2023-01-01 00:00:00"
+    },
+    {
+      "table": "raw.customers",
+      "column": "batch_id",
+      "rows": 2000000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "distinct": 1,
+      "minimum": 1,
+      "maximum": 1
+    },
+    {
+      "table": "raw.products",
+      "column": "product_id",
+      "rows": 100000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "distinct": 100000,
+      "minimum": 1,
+      "maximum": 100000
+    },
+    {
+      "table": "raw.products",
+      "column": "category",
+      "rows": 100000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "distinct": 30,
+      "minimum": "Category-0",
+      "maximum": "Category-9"
+    },
+    {
+      "table": "raw.products",
+      "column": "list_price",
+      "rows": 100000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "distinct": 10000,
+      "minimum": "10.00",
+      "maximum": "109.99"
+    },
+    {
+      "table": "raw.orders",
+      "column": "order_id",
+      "rows": 10000000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "distinct": 10000000,
+      "minimum": 1,
+      "maximum": 10000000
+    },
+    {
+      "table": "raw.orders",
+      "column": "customer_id",
+      "rows": 10000000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "distinct": 2000000,
+      "minimum": 1,
+      "maximum": 2000000
+    },
+    {
+      "table": "raw.orders",
+      "column": "purchased_at",
+      "rows": 10000000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "distinct": 730,
+      "minimum": "2024-01-01 00:00:00",
+      "maximum": "2025-12-30 00:00:00"
+    },
+    {
+      "table": "raw.orders",
+      "column": "delivered_at",
+      "rows": 10000000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "distinct": 730,
+      "minimum": "2024-01-04 00:00:00",
+      "maximum": "2026-01-02 00:00:00"
+    },
+    {
+      "table": "raw.orders",
+      "column": "status",
+      "rows": 10000000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "distinct": 2,
+      "minimum": "cancelled",
+      "maximum": "delivered"
+    },
+    {
+      "table": "raw.orders",
+      "column": "updated_at",
+      "rows": 10000000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "distinct": 1,
+      "minimum": "2026-01-01 00:00:00",
+      "maximum": "2026-01-01 00:00:00"
+    },
+    {
+      "table": "raw.orders",
+      "column": "batch_id",
+      "rows": 10000000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "distinct": 1,
+      "minimum": 1,
+      "maximum": 1
+    },
+    {
+      "table": "raw.order_items",
+      "column": "order_id",
+      "rows": 30000000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "distinct": 10000000,
+      "minimum": 1,
+      "maximum": 10000000
+    },
+    {
+      "table": "raw.order_items",
+      "column": "line_id",
+      "rows": 30000000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "distinct": 3,
+      "minimum": 1,
+      "maximum": 3
+    },
+    {
+      "table": "raw.order_items",
+      "column": "product_id",
+      "rows": 30000000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "distinct": 100000,
+      "minimum": 1,
+      "maximum": 100000
+    },
+    {
+      "table": "raw.order_items",
+      "column": "seller_id",
+      "rows": 30000000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "distinct": 1000,
+      "minimum": 1,
+      "maximum": 1000
+    },
+    {
+      "table": "raw.order_items",
+      "column": "quantity",
+      "rows": 30000000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "distinct": 3,
+      "minimum": 1,
+      "maximum": 3
+    },
+    {
+      "table": "raw.order_items",
+      "column": "unit_price",
+      "rows": 30000000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "distinct": 10000,
+      "minimum": "10.00",
+      "maximum": "109.99"
+    },
+    {
+      "table": "raw.order_items",
+      "column": "discount_amount",
+      "rows": 30000000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "distinct": 5,
+      "minimum": "0.00",
+      "maximum": "4.00"
+    },
+    {
+      "table": "raw.order_items",
+      "column": "freight_amount",
+      "rows": 30000000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "distinct": 100,
+      "minimum": "2.00",
+      "maximum": "2.99"
+    },
+    {
+      "table": "raw.order_items",
+      "column": "batch_id",
+      "rows": 30000000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "distinct": 1,
+      "minimum": 1,
+      "maximum": 1
+    },
+    {
+      "table": "raw.payments",
+      "column": "order_id",
+      "rows": 20000000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "distinct": 10000000,
+      "minimum": 1,
+      "maximum": 10000000
+    },
+    {
+      "table": "raw.payments",
+      "column": "payment_sequence",
+      "rows": 20000000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "distinct": 2,
+      "minimum": 1,
+      "maximum": 2
+    },
+    {
+      "table": "raw.payments",
+      "column": "payment_method",
+      "rows": 20000000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "distinct": 1,
+      "minimum": "credit_card",
+      "maximum": "credit_card"
+    },
+    {
+      "table": "raw.payments",
+      "column": "payment_amount",
+      "rows": 20000000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "distinct": 8030,
+      "minimum": "28.78",
+      "maximum": "332.85"
+    },
+    {
+      "table": "raw.payments",
+      "column": "batch_id",
+      "rows": 20000000,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "distinct": 1,
+      "minimum": 1,
+      "maximum": 1
+    },
+    {
+      "table": "raw.reviews",
+      "column": "review_id",
+      "rows": 3333333,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "distinct": 3333333,
+      "minimum": 3,
+      "maximum": 9999999
+    },
+    {
+      "table": "raw.reviews",
+      "column": "order_id",
+      "rows": 3333333,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "distinct": 3333333,
+      "minimum": 3,
+      "maximum": 9999999
+    },
+    {
+      "table": "raw.reviews",
+      "column": "score",
+      "rows": 3333333,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "distinct": 5,
+      "minimum": 1,
+      "maximum": 5
+    },
+    {
+      "table": "raw.reviews",
+      "column": "review_text",
+      "rows": 3333333,
+      "nulls": 333333,
+      "null_pct": 10.0,
+      "distinct": 1,
+      "minimum": "Synthetic review",
+      "maximum": "Synthetic review"
+    },
+    {
+      "table": "raw.reviews",
+      "column": "batch_id",
+      "rows": 3333333,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "distinct": 1,
+      "minimum": 1,
+      "maximum": 1
+    }
+  ]
+}

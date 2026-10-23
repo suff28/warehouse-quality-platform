@@ -1,0 +1,32 @@
+name: Manual Snowflake validation
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  snowflake:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment: snowflake
+    env:
+      DBT_TARGET: snowflake
+      DBT_SEND_ANONYMOUS_USAGE_STATS: 'false'
+      SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
+      SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
+      SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
+      SNOWFLAKE_ROLE: RETAIL_QE
+      SNOWFLAKE_DATABASE: RETAIL_QE
+      SNOWFLAKE_WAREHOUSE: RETAIL_QE_WH
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: make install
+      - run: .venv/bin/dbt build --project-dir dbt --profiles-dir dbt --target snowflake
+      - run: make cloud-check
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: snowflake-quality-evidence
+          path: artifacts/

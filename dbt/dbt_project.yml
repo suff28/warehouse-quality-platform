@@ -1,0 +1,13 @@
+name: retail_quality
+version: '1.0.0'
+config-version: 2
+profile: retail_quality
+model-paths: [models]
+test-paths: [tests]
+snapshot-paths: [snapshots]
+models:
+  retail_quality:
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table

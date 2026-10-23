@@ -1,0 +1,68 @@
+test_id,requirement,name,severity,precondition,steps,expected,implementation
+QE-001,REQ-01,customers: source grain uniqueness,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-001
+QE-002,REQ-01,customers: customer_id required,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-002
+QE-003,REQ-01,products: source grain uniqueness,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-003
+QE-004,REQ-01,products: product_id required,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-004
+QE-005,REQ-01,sellers: source grain uniqueness,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-005
+QE-006,REQ-01,sellers: seller_id required,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-006
+QE-007,REQ-01,orders: source grain uniqueness,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-007
+QE-008,REQ-01,orders: order_id required,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-008
+QE-009,REQ-01,order_items: source grain uniqueness,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-009
+QE-010,REQ-01,order_items: order_id required,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-010
+QE-011,REQ-01,order_items: line_id required,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-011
+QE-012,REQ-01,payments: source grain uniqueness,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-012
+QE-013,REQ-01,payments: order_id required,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-013
+QE-014,REQ-01,payments: payment_sequence required,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-014
+QE-015,REQ-01,reviews: source grain uniqueness,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-015
+QE-016,REQ-01,reviews: review_id required,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-016
+QE-017,REQ-02,orders: customer_id reference,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-017
+QE-018,REQ-02,order_items: order_id reference,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-018
+QE-019,REQ-02,order_items: product_id reference,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-019
+QE-020,REQ-02,order_items: seller_id reference,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-020
+QE-021,REQ-02,payments: order_id reference,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-021
+QE-022,REQ-02,reviews: order_id reference,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-022
+QE-023,REQ-03,dim_customer: grain,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-023
+QE-024,REQ-03,dim_customer: key required,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-024
+QE-025,REQ-03,dim_product: grain,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-025
+QE-026,REQ-03,dim_product: key required,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-026
+QE-027,REQ-03,dim_seller: grain,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-027
+QE-028,REQ-03,dim_seller: key required,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-028
+QE-029,REQ-03,dim_date: grain,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-029
+QE-030,REQ-03,dim_date: key required,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-030
+QE-031,REQ-03,fct_order_items: grain,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-031
+QE-032,REQ-03,fct_order_items: key required,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-032
+QE-033,REQ-03,fct_orders: grain,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-033
+QE-034,REQ-03,fct_orders: key required,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-034
+QE-035,REQ-03,fct_payments: grain,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-035
+QE-036,REQ-03,fct_payments: key required,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-036
+QE-037,REQ-03,mart_daily_sales: grain,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-037
+QE-038,REQ-03,mart_daily_sales: key required,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-038
+QE-039,REQ-04,Fact source count,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-039
+QE-040,REQ-04,Order source count,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-040
+QE-041,REQ-04,Independent line amounts,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-041
+QE-042,REQ-04,Daily net sales reconciliation,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-042
+QE-043,REQ-05,Customer historical key required,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-043
+QE-044,REQ-05,Customer one current version,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-044
+QE-045,REQ-05,Customer valid intervals,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-045
+QE-046,REQ-05,Customer no overlapping intervals,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-046
+QE-047,REQ-05,Temporal customer attribution,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-047
+QE-048,REQ-06,Positive quantity,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-048
+QE-049,REQ-06,Nonnegative price,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-049
+QE-050,REQ-06,Valid discount,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-050
+QE-051,REQ-06,Nonnegative freight,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-051
+QE-052,REQ-06,Valid status,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-052
+QE-053,REQ-06,Delivery chronology,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-053
+QE-054,REQ-06,Review score range,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-054
+QE-055,REQ-06,Payment amount positive,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-055
+QE-056,REQ-06,Batch ID positive,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-056
+QE-057,REQ-06,Purchase date required,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-057
+QE-058,REQ-06,Update time required,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-058
+QE-059,REQ-06,Payment order totals,critical,Warehouse built against completed source delivery,Execute SQL and count violations,0 violating rows,config/checks.yml: QE-059
+LIFE-01,REQ-07/REQ-08,New arrivals,critical,Isolated dbt test database,Apply arrival and execute real dbt build,Assertions in lifecycle test pass,tests/test_incremental.py
+LIFE-02,REQ-07/REQ-08,Update existing order,critical,Isolated dbt test database,Apply arrival and execute real dbt build,Assertions in lifecycle test pass,tests/test_incremental.py
+LIFE-03,REQ-07/REQ-08,Customer address transition,critical,Isolated dbt test database,Apply arrival and execute real dbt build,Assertions in lifecycle test pass,tests/test_incremental.py
+LIFE-04,REQ-07/REQ-08,Historical attribution,critical,Isolated dbt test database,Apply arrival and execute real dbt build,Assertions in lifecycle test pass,tests/test_incremental.py
+LIFE-05,REQ-07/REQ-08,Late business date,critical,Isolated dbt test database,Apply arrival and execute real dbt build,Assertions in lifecycle test pass,tests/test_incremental.py
+LIFE-06,REQ-07/REQ-08,Exact replay,critical,Isolated dbt test database,Apply arrival and execute real dbt build,Assertions in lifecycle test pass,tests/test_incremental.py
+LIFE-07,REQ-07/REQ-08,Failure rollback,critical,Isolated dbt test database,Apply arrival and execute real dbt build,Assertions in lifecycle test pass,tests/test_incremental.py
+LIFE-08,REQ-07/REQ-08,Retry success,critical,Isolated dbt test database,Apply arrival and execute real dbt build,Assertions in lifecycle test pass,tests/test_incremental.py

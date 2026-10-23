@@ -1,0 +1,26 @@
+[
+  {
+    "table": "customers",
+    "missing": 0,
+    "extra": 0,
+    "status": "PASS"
+  },
+  {
+    "table": "products",
+    "missing": 0,
+    "extra": 0,
+    "status": "PASS"
+  },
+  {
+    "table": "sellers",
+    "missing": 0,
+    "extra": 0,
+    "status": "PASS"
+  },
+  {
+    "table": "orders",
+    "missing": 0,
+    "extra": 0,
+    "status": "PASS"
+  }
+]

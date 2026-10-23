@@ -1,0 +1,48 @@
+target_table,target_column,source,transformation,type,requirement
+dim_customer,customer_key,customer_history.dbt_scd_id,snapshot surrogate,VARCHAR,REQ-05
+dim_customer,customer_id,customers.customer_id,identity,BIGINT,REQ-05
+dim_customer,customer_name,customers.customer_name,trim,VARCHAR,REQ-05
+dim_customer,city,customers.city,trim,VARCHAR,REQ-05
+dim_customer,state,customers.state,upper(trim),VARCHAR,REQ-05
+dim_customer,valid_from,customer_history.dbt_valid_from,authoritative source updated_at,TIMESTAMP,REQ-05
+dim_customer,valid_to,customer_history.dbt_valid_to,exclusive end; null=current,TIMESTAMP,REQ-05
+dim_product,product_id,products.product_id,identity,BIGINT,REQ-03
+dim_product,category,products.category,identity,VARCHAR,REQ-03
+dim_product,list_price,products.list_price,identity,"DECIMAL(18,2)",REQ-03
+dim_seller,seller_id,sellers.seller_id,identity,BIGINT,REQ-03
+dim_seller,seller_name,sellers.seller_name,identity,VARCHAR,REQ-03
+dim_seller,state,sellers.state,identity,VARCHAR,REQ-03
+dim_date,date_key,orders.purchased_at,cast as date,DATE,REQ-03
+dim_date,year_number,orders.purchased_at,extract year,INTEGER,REQ-03
+dim_date,month_number,orders.purchased_at,extract month,INTEGER,REQ-03
+dim_date,day_number,orders.purchased_at,extract day,INTEGER,REQ-03
+fct_orders,order_id,orders.order_id,latest updated_at and batch per order; inclusive arrival watermark,BIGINT,REQ-07
+fct_orders,customer_id,orders.customer_id,latest updated_at and batch per order; inclusive arrival watermark,BIGINT,REQ-07
+fct_orders,status,orders.status,latest updated_at and batch per order; inclusive arrival watermark,VARCHAR,REQ-07
+fct_orders,purchased_at,orders.purchased_at,latest updated_at and batch per order; inclusive arrival watermark,TIMESTAMP,REQ-07
+fct_orders,updated_at,orders.updated_at,latest updated_at and batch per order; inclusive arrival watermark,TIMESTAMP,REQ-07
+fct_orders,batch_id,orders.batch_id,latest updated_at and batch per order; inclusive arrival watermark,BIGINT,REQ-07
+fct_payments,order_id,payments.order_id,group key,BIGINT,REQ-04
+fct_payments,payment_count,payments.payment_sequence,count rows per order,BIGINT,REQ-04
+fct_payments,paid_amount,payments.payment_amount,sum per order,"DECIMAL(20,2)",REQ-04
+mart_daily_sales,date_key,fct_order_items,group by purchase date; exclude cancelled,DATE,REQ-04
+mart_daily_sales,line_count,fct_order_items,count lines,BIGINT,REQ-04
+mart_daily_sales,order_count,fct_order_items,count distinct order_id,BIGINT,REQ-04
+mart_daily_sales,net_sales,fct_order_items,sum net_amount,"DECIMAL(20,2)",REQ-04
+mart_daily_sales,freight_total,fct_order_items,sum freight_amount,"DECIMAL(20,2)",REQ-04
+fct_order_items,order_item_key,"order_items.order_id,line_id",order_id || - || line_id,VARCHAR,REQ-04
+fct_order_items,order_id,order_items.order_id,identity,BIGINT,REQ-04
+fct_order_items,line_id,order_items.line_id,identity,BIGINT,REQ-04
+fct_order_items,customer_id,orders.customer_id,order_id join,BIGINT,REQ-04
+fct_order_items,customer_key,dim_customer.customer_key,customer_id and purchased_at within half-open interval,VARCHAR,REQ-04
+fct_order_items,product_id,order_items.product_id,identity,BIGINT,REQ-04
+fct_order_items,seller_id,order_items.seller_id,identity,BIGINT,REQ-04
+fct_order_items,date_key,orders.purchased_at,cast as date,DATE,REQ-04
+fct_order_items,status,orders.status,lower(trim),VARCHAR,REQ-04
+fct_order_items,quantity,order_items.quantity,identity,INTEGER,REQ-04
+fct_order_items,unit_price,order_items.unit_price,identity,"DECIMAL(18,2)",REQ-04
+fct_order_items,discount_amount,order_items.discount_amount,identity,"DECIMAL(18,2)",REQ-04
+fct_order_items,net_amount,order_items,quantity*unit_price-discount_amount,"DECIMAL(18,2)",REQ-04
+fct_order_items,freight_amount,order_items.freight_amount,identity,"DECIMAL(18,2)",REQ-04
+fct_order_items,updated_at,orders.updated_at,identity,TIMESTAMP,REQ-04
+fct_order_items,batch_id,order_items.batch_id,identity,BIGINT,REQ-04

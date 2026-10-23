@@ -1,0 +1,110 @@
+[
+  {
+    "id": "DEF-01",
+    "name": "Duplicate order source",
+    "mutation": "create or replace table raw.orders as select * from raw.orders union all select * from raw.orders where order_id=1",
+    "expected_detector": "orders: source grain uniqueness",
+    "detected": true,
+    "restored": true,
+    "resolution": "Rollback injected transaction; production remediation described in docs/DEFECT_CATALOG.md"
+  },
+  {
+    "id": "DEF-02",
+    "name": "Fan-out doubles revenue",
+    "mutation": "update analytics.mart_daily_sales set net_sales=net_sales*2",
+    "expected_detector": "Daily net sales reconciliation",
+    "detected": true,
+    "restored": true,
+    "resolution": "Rollback injected transaction; production remediation described in docs/DEFECT_CATALOG.md"
+  },
+  {
+    "id": "DEF-03",
+    "name": "Missing column",
+    "mutation": "alter table analytics.fct_order_items drop column net_amount",
+    "expected_detector": "Independent line amounts",
+    "detected": true,
+    "restored": true,
+    "resolution": "Rollback injected transaction; production remediation described in docs/DEFECT_CATALOG.md"
+  },
+  {
+    "id": "DEF-04",
+    "name": "Wrong rounding",
+    "mutation": "update analytics.fct_order_items set net_amount=net_amount+0.01 where order_id=1",
+    "expected_detector": "Independent line amounts",
+    "detected": true,
+    "restored": true,
+    "resolution": "Rollback injected transaction; production remediation described in docs/DEFECT_CATALOG.md"
+  },
+  {
+    "id": "DEF-05",
+    "name": "Missing customer",
+    "mutation": "create or replace table raw.customers as select * from raw.customers where customer_id!=18",
+    "expected_detector": "orders: customer_id reference",
+    "detected": true,
+    "restored": true,
+    "resolution": "Rollback injected transaction; production remediation described in docs/DEFECT_CATALOG.md"
+  },
+  {
+    "id": "DEF-06",
+    "name": "SCD overlap",
+    "mutation": "insert into analytics.dim_customer select customer_key||'bad',customer_id,customer_name,city,state,valid_from+interval '1 day',null from analytics.dim_customer where customer_id=18",
+    "expected_detector": "Customer no overlapping intervals",
+    "detected": true,
+    "restored": true,
+    "resolution": "Rollback injected transaction; production remediation described in docs/DEFECT_CATALOG.md"
+  },
+  {
+    "id": "DEF-07",
+    "name": "Replay duplicate",
+    "mutation": "insert into analytics.fct_orders select * from analytics.fct_orders where order_id=1",
+    "expected_detector": "fct_orders: grain",
+    "detected": true,
+    "restored": true,
+    "resolution": "Rollback injected transaction; production remediation described in docs/DEFECT_CATALOG.md"
+  },
+  {
+    "id": "DEF-08",
+    "name": "Bad chronology",
+    "mutation": "create or replace table raw.orders as select * replace(purchased_at-interval '1 day' as delivered_at) from raw.orders",
+    "expected_detector": "Delivery chronology",
+    "detected": true,
+    "restored": true,
+    "resolution": "Rollback injected transaction; production remediation described in docs/DEFECT_CATALOG.md"
+  },
+  {
+    "id": "DEF-09",
+    "name": "Negative quantity",
+    "mutation": "create or replace table raw.order_items as select * replace(-1 as quantity) from raw.order_items",
+    "expected_detector": "Positive quantity",
+    "detected": true,
+    "restored": true,
+    "resolution": "Rollback injected transaction; production remediation described in docs/DEFECT_CATALOG.md"
+  },
+  {
+    "id": "DEF-10",
+    "name": "Missing fact row",
+    "mutation": "delete from analytics.fct_order_items where order_id=1",
+    "expected_detector": "Fact source count",
+    "detected": true,
+    "restored": true,
+    "resolution": "Rollback injected transaction; production remediation described in docs/DEFECT_CATALOG.md"
+  },
+  {
+    "id": "DEF-11",
+    "name": "Wrong historical key",
+    "mutation": "update analytics.fct_order_items set customer_key=null where order_id=1",
+    "expected_detector": "Customer historical key required",
+    "detected": true,
+    "restored": true,
+    "resolution": "Rollback injected transaction; production remediation described in docs/DEFECT_CATALOG.md"
+  },
+  {
+    "id": "DEF-12",
+    "name": "Unknown status",
+    "mutation": "create or replace table raw.orders as select * replace('garbage' as status) from raw.orders",
+    "expected_detector": "Valid status",
+    "detected": true,
+    "restored": true,
+    "resolution": "Rollback injected transaction; production remediation described in docs/DEFECT_CATALOG.md"
+  }
+]

@@ -1,0 +1,51 @@
+[
+  {
+    "table": "customers",
+    "status": "PASS",
+    "rows_compared": 2000,
+    "mismatched_positions": 0,
+    "samples": []
+  },
+  {
+    "table": "products",
+    "status": "PASS",
+    "rows_compared": 100,
+    "mismatched_positions": 0,
+    "samples": []
+  },
+  {
+    "table": "sellers",
+    "status": "PASS",
+    "rows_compared": 10,
+    "mismatched_positions": 0,
+    "samples": []
+  },
+  {
+    "table": "orders",
+    "status": "PASS",
+    "rows_compared": 10000,
+    "mismatched_positions": 0,
+    "samples": []
+  },
+  {
+    "table": "order_items",
+    "status": "PASS",
+    "rows_compared": 30000,
+    "mismatched_positions": 0,
+    "samples": []
+  },
+  {
+    "table": "payments",
+    "status": "PASS",
+    "rows_compared": 20000,
+    "mismatched_positions": 0,
+    "samples": []
+  },
+  {
+    "table": "reviews",
+    "status": "PASS",
+    "rows_compared": 3333,
+    "mismatched_positions": 0,
+    "samples": []
+  }
+]
