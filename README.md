@@ -1,4 +1,4 @@
-# Brazilian E-Commerce Data Quality & ETL Validation Framework
+# Data Quality and ETL Validation Framework
 
 An end-to-end data quality engineering portfolio project for a synthetic retail warehouse. It combines Python ingestion and validation, PostgreSQL extraction, Parquet delivery, an AWS S3 sample upload, Snowflake/dbt modeling, independent SQL quality gates, and reproducible defect tests.
 
